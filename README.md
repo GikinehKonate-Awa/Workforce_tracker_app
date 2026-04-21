@@ -49,9 +49,9 @@ Sistema de fitxatge d'entrades i sortides per a una empresa de 400 empleats. La 
 
 ## Tecnologies
 
-- Frontend: React
-- Backend: Node.js + Express
-- Base de dades: SQLite
+- Frontend: HTML + CSS + JavaScript
+- Backend: PHP
+- Base de dades: MySQL
 
 ## Autor
 
