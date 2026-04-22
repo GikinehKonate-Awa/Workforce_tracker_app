@@ -1,58 +1,134 @@
-# Workforce Tracker App
+# Workforce Tracker - Sistema de Control de Presencia Empresarial
 
-Aplicació web de control de presència per a empreses, desenvolupada com a projecte de l'assignatura d'Implementació d'Aplicacions Web.
+Aplicación web completa para el control de fichaje y presencia de empleados, desarrollada 100% con tecnologías nativas sin frameworks externos.
 
-## Descripció
+## ✅ Características principales
 
-Sistema de fitxatge d'entrades i sortides per a una empresa de 400 empleats. La verificació de presència es realitza mitjançant connexió VPN corporativa, ja que l'empresa no permet l'ús de geolocalització. Inclou suport per a teletreball, registre manual nocturn amb comentari obligatori i gestió per departaments amb diferents nivells d'accés segons el rol de l'usuari.
+✅ Detección automática de conexión VPN corporativa
+✅ Excepciones para empleados en modalidad teletrabajo
+✅ Sistema de fichaje manual nocturno con comentario obligatorio
+✅ Roles diferenciados: Empleado / Jefe de Departamento / RRHH
+✅ Base de datos MySQL con PDO y consultas preparadas
+✅ Autenticación segura con sesiones PHP
+✅ Diseño responsive con CSS puro
+✅ Instalador automático
+✅ Sin dependencias externas
 
-## Rols
+## 🛠️ Stack Tecnológico
 
-### Empleat (usuari estàndard)
-- Fitxar entrada i sortida mitjançant VPN
-- Registre manual nocturn si s'ha oblidat fitxar durant el dia
-- Consulta i descàrrega de nòmines mensuals
-- Visualització del propi horari setmanal i dies de teletreball
-- Consulta i registre d'hores als projectes assignats
-- Sol·licitud i seguiment d'hores extres
-- Consulta de notificacions i alertes
-- Accés al directori de contactes de l'empresa
-- Gestió del perfil personal
+- **Backend**: PHP 7.4+ nativo
+- **Base de Datos**: MySQL / MariaDB
+- **Frontend**: HTML5, CSS3, JavaScript Vanilla
+- **Sin frameworks**: No React, Vue, Angular, Laravel, Bootstrap ni librerías externas
 
-### Cap de departament
-- Visualització en temps real de l'estat de presència del seu equip
-- Revisió i validació de registres manuals nocturns
-- Consulta del temps invertit per cada empleat en cada projecte
-- Accés a resums setmanals: hores treballades, tasques completades, hores extres i incidències
-- Modificació dels horaris dels empleats del seu departament
-- Gestió de dies de teletreball dels membres de l'equip
-- Aprovació o rebuig de sol·licituds d'hores extres i canvis de modalitat
-- Accés a informes i analítiques del departament
-- Enviament de comunicats i avisos a l'equip
+## 📋 Requisitos del sistema
 
-## Departaments
+- PHP 7.4 o superior
+- Extensiones PHP: PDO, pdo_mysql, mysqli, gd
+- Servidor web Apache o Nginx
+- MySQL 5.7+ o MariaDB 10.2+
+- Mod Rewrite habilitado en Apache
 
-- Direcció
-- Desenvolupament
-- Comptabilitat
-- Recursos Humans (amb accés de supervisió global sobre tots els registres)
+## 🚀 Instalación
 
-## Funcionalitats destacades
+1. **Descargar y colocar los archivos** en el directorio de tu servidor web (ej: `/var/www/html/Workforce_tracker_app/`)
 
-- Verificació de presència per VPN sense ús de geolocalització
-- Excepció automàtica per a empleats en modalitat de teletreball
-- Registre manual nocturn amb comentari obligatori i marcatge com a registre manual
-- Recordatoris automàtics si la VPN està activa i no s'ha fitxat
-- Registre i sol·licitud d'hores extres amb flux d'aprovació
-- Exportació d'informes en PDF, CSV i Excel
-- Disseny responsive amb navegació inferior en mòbil i lateral en escriptori
+2. **Configurar la base de datos** editando el fichero `config.php`:
+   ```php
+   define('DB_HOST', 'localhost');
+   define('DB_NAME', 'workforce_tracker');
+   define('DB_USER', 'tu_usuario');
+   define('DB_PASS', 'tu_contraseña');
+   ```
 
-## Tecnologies
+3. **Ejecutar el instalador** accediendo desde el navegador a:
+   ```
+   http://localhost/Workforce_tracker_app/install.php
+   ```
 
-- Frontend: HTML + CSS + JavaScript
-- Backend: PHP
-- Base de dades: MySQL
+4. El instalador comprobará automáticamente todos los requisitos, creará la base de datos, las tablas y cargará los datos de prueba.
 
-## Autor
+## 🔑 Credenciales de prueba
 
-Awa Gikineh Konate — Curs 2025/2026
+### 👤 Empleados estándar
+Contraseña: `Empleat2025!`
+- empleado.desarrollo@empresa.com
+- empleado.contabilidad@empresa.com
+- empleado.rrhh@empresa.com
+- empleado.direccion@empresa.com
+
+### 👔 Jefes de departamento
+Contraseña: `Cap2025!`
+- jefe.desarrollo@empresa.com
+- jefe.contabilidad@empresa.com
+- jefe.rrhh@empresa.com
+- jefe.direccion@empresa.com
+
+## 📂 Estructura del proyecto
+
+```
+/workforce-tracker-app
+├── /assets
+│   ├── /css/          # Hojas de estilo
+│   ├── /js/           # JavaScript
+│   └── /img/          # Imágenes y fotos de perfil
+├── /includes
+│   ├── config.php     # Configuración general
+│   ├── db.php         # Conexión PDO a base de datos
+│   ├── auth.php       # Sistema de autenticación
+│   └── functions.php  # Funciones generales
+├── /empleado          # Área de empleado estándar
+├── /jefe              # Área de jefe de departamento
+├── /auth              # Autenticación
+├── /logs              # Archivos de log
+├── index.php          # Página principal
+├── install.php        # Instalador automático
+├── database.sql       # Estructura de base de datos
+└── .htaccess          # Reglas de servidor y seguridad
+```
+
+## 🔒 Características de seguridad
+
+- Contraseñas hasheadas con `password_hash()`
+- Todas las consultas SQL usan PDO preparadas
+- Protección contra SQL Injection
+- Sesiones PHP seguras con HttpOnly y SameSite
+- Cabeceras de seguridad X-Frame-Options, X-XSS-Protection
+- Bloqueo de acceso directo a archivos sensibles
+- Protección CSRF implícita
+
+## ⚙️ Funcionalidades por rol
+
+### 🧑‍💼 Rol Empleado
+- ✅ Dashboard personal
+- ✅ Botón de fichaje entrada/salida
+- ✅ Indicador de estado VPN
+- ✅ Fichaje manual nocturno
+- ✅ Historial de fichajes
+- ✅ Gestión de perfil
+- ✅ Visualización de horario
+- ✅ Proyectos asignados
+- ✅ Registro de horas extras
+- ✅ Visualización de nóminas
+- ✅ Notificaciones y alertas
+- ✅ Directorio de contactos
+
+### 🧑‍💼 Rol Jefe de Departamento
+- ✅ Dashboard de equipo en tiempo real
+- ✅ Visualización de fichajes de todo el departamento
+- ✅ Aprobación de registros manuales
+- ✅ Gestión de horarios de empleados
+- ✅ Informes y analíticas
+- ✅ Aprobación de solicitudes de horas extras
+- ✅ Exportación de informes CSV
+- ✅ Envío de comunicaciones al equipo
+
+## 📝 Notas importantes
+
+⚠️ **IMPORTANTE**: Después de la instalación correcta, elimina o protege con contraseña el fichero `install.php` por seguridad.
+
+El fichero `installed.lock` se crea automáticamente después de la instalación para evitar ejecuciones posteriores.
+
+## 📄 Licencia
+
+Software desarrollado para uso empresarial interno.
