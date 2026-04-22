@@ -8,7 +8,7 @@ define('APP_URL', 'http://localhost/Workforce_tracker_app');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'workforce_tracker');
 define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_PASS', 'root');
 define('DB_CHARSET', 'utf8mb4');
 
 // CONFIGURACIÓN VPN CORPORATIVA
